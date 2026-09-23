@@ -1,0 +1,33 @@
+services:
+
+  db:
+    image: mariadb:11
+    container_name: dolibarr-db
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: dolibarr
+      MYSQL_USER: dolibarr
+      MYSQL_PASSWORD: dolibarrpass
+      MYSQL_ROOT_PASSWORD: rootpass
+    volumes:
+      - mariadb_data:/var/lib/mysql
+
+  dolibarr:
+    image: dolibarr/dolibarr:latest
+    container_name: dolibarr-app
+    restart: unless-stopped
+    depends_on:
+      - db
+    ports:
+      - "8081:80"
+    environment:
+      DOLI_DB_HOST: db
+      DOLI_DB_NAME: dolibarr
+      DOLI_DB_USER: dolibarr
+      DOLI_DB_PASSWORD: dolibarrpass
+    volumes:
+      - dolibarr_documents:/var/www/documents
+
+volumes:
+  mariadb_data:
+  dolibarr_documents:
