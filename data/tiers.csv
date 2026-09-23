@@ -1,0 +1,3 @@
+Nom du tiers* (s.nom),État* (s.status),Code pays (s.fk_pays),Client* (s.client),Fournisseur* (s.fournisseur)
+Entreprise Test SAE,1,FR,1,0
+Client Demo SAE,1,FR,1,0
