@@ -1,4 +1,3 @@
-```bash
 #!/bin/bash
 # Sources :
 # - Documentation Bash : https://www.gnu.org/software/bash/manual/bash.html
@@ -228,4 +227,3 @@ docker exec -i -e MYSQL_PWD="$DB_PASSWORD" \
 
 # Affiche un message lorsque l'import s'est terminé sans erreur détectée.
 echo "Import terminé."
-```
